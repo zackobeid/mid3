@@ -17,71 +17,81 @@ void unit_test(double tolerance);
 #endif
 
 double m[160] = {135.000000, 
-135.000000, 
-135.000000, 
-135.000000, 
-135.000000, 
-135.000000, 
-135.000000, 
-135.000000, 
-135.000000, 
-135.000000, 
-135.000000, 
-135.000000, 
-135.000000, 
-135.000000, 
-135.000000, 
-135.000000, 
-136.918960, 
-136.918960, 
-136.918960, 
-136.918960,
-136.918960,
-136.918960,
-136.918960, 
-136.918960, 
-136.918960, 
-136.918960, 
-136.918960, 
-136.918960, 
-136.918960, 
-136.918960, 
-136.918960, 
-136.918960, 
-138.728600, 
-138.728600, 
-138.728600, 
-138.728600, 
-138.728600, 
-138.728600, 
-138.728600, 
-138.728600, 
-138.728600, 
-138.728600, 
-138.728600, 
-138.728600, 
-138.728600, 
-138.728600, 
-138.728600, 
-138.728600, 
-140.754928, 
-140.754928, 
-140.754928, 
-140.754928, 
-140.754928, 
-140.754928, 
-140.754928, 
-140.754928, 
-140.754928, 
-140.754928, 
-140.754928, 
-140.754928, 
-140.754928, 
-140.754928, 
-140.754928, 
-140.754928, 
-142.103320,
-   
+    135.000000, 
+    135.000000, 
+    135.000000, 
+    135.000000, 
+    135.000000, 
+    135.000000, 
+    135.000000, 
+    135.000000, 
+    135.000000, 
+    135.000000, 
+    135.000000, 
+    135.000000, 
+    135.000000, 
+    135.000000, 
+    135.000000, 
+    136.918960, 
+    136.918960, 
+    136.918960, 
+    136.918960,
+    136.918960,
+    136.918960,
+    136.918960, 
+    136.918960, 
+    136.918960, 
+    136.918960, 
+    136.918960, 
+    136.918960, 
+    136.918960, 
+    136.918960, 
+    136.918960, 
+    136.918960, 
+    138.728600, 
+    138.728600, 
+    138.728600, 
+    138.728600, 
+    138.728600, 
+    138.728600, 
+    138.728600, 
+    138.728600, 
+    138.728600, 
+    138.728600, 
+    138.728600, 
+    138.728600, 
+    138.728600, 
+    138.728600, 
+    138.728600, 
+    138.728600, 
+    140.754928, 
+    140.754928, 
+    140.754928, 
+    140.754928, 
+    140.754928, 
+    140.754928, 
+    140.754928, 
+    140.754928, 
+    140.754928, 
+    140.754928, 
+    140.754928, 
+    140.754928, 
+    140.754928, 
+    140.754928, 
+    140.754928, 
+    140.754928, 
+    142.103320,
+    142.103320,
+    142.103320,
+    142.103320,
+    142.103320,
+    142.103320,
+    142.103320,
+    142.103320,
+    142.103320,
+    142.103320,
+    142.103320,
+
 };
 
 double height [160] = {
@@ -159,8 +169,9 @@ double height [160] = {
     65.439231,
     67.890339,  
     70.029941,
+    71.232294,
 
-    };
+};
 double ponderal[160] = {
     13.572088,
     13.858594,
@@ -237,8 +248,8 @@ double ponderal[160] = {
     16.238982,
     16.641992,
     16.989835,
-        
-    
+
+
 };
 
 
@@ -247,46 +258,48 @@ int main(int argc, char *argv[])
 #ifdef UTEST
     double t=0.01; 
 
-	if (argc < 2) {
-		cout << "No input was detected.                  \n";
-		cout << "                                        \n";
-		cout << "Program usage: ./program <tolerance>\n";
-		cout << "(default values will be displayed)      \n";
-	}
-	if (argc > 1)
+    if (argc < 2) {
+        cout << "No input was detected.                  \n";
+        cout << "                                        \n";
+        cout << "Program usage: ./program <tolerance>\n";
+        cout << "(default values will be displayed)      \n";
+    }
+    if (argc > 1) 
         t = atof(argv[1]);
-    unit_test(t); 
+    unit_test(t);
+
 #endif
 
-	//Set default values
-	double mass   = 1.0;
-	double height = 1.0;
-	//Get command-line arguments
-	if (argc < 3) {
-		cout << "No input was detected.                  \n";
-		cout << "                                        \n";
-		cout << "Program usage: ./program <mass> <height>\n";
-		cout << "(default values will be displayed)      \n";
-	}
-	if (argc > 1)
-		mass = atof(argv[1]);
-	if (argc > 2)
-		height = atof(argv[2]);
-	cout << "Ponderal value is: ";
-	//This formatting will help for your unit test output
-	cout << setw(10) << left << fixed << setprecision(6);
-	cout << getPonderal(mass, height) << endl;
-	cout << endl;
-
-	return 0;
+#ifdef NORM
+    //Set default values
+    double mass   = 1.0;
+    double height = 1.0;
+    //Get command-line arguments
+    if (argc < 3) {
+        cout << "No input was detected.                  \n";
+        cout << "                                        \n";
+        cout << "Program usage: ./program <mass> <height>\n";
+        cout << "(default values will be displayed)      \n";
+    }
+    if (argc > 1)
+        mass = atof(argv[1]);
+    if (argc > 2)
+        height = atof(argv[2]);
+    cout << "Ponderal value is: ";
+    //This formatting will help for your unit test output
+    cout << setw(10) << left << fixed << setprecision(6);
+    cout << getPonderal(mass, height) << endl;
+    cout << endl;
+#endif
+    return 0;
 }
 
 double getPonderal(double mass, double height)
 {
-	double oneThird = 1.0 / 3.0;
-	double cuberoot = pow(height, oneThird);
-	double ponderal = height / cuberoot;
-	return ponderal;
+    double oneThird = 1.0 / 3.0;
+    double cuberoot = pow(height, oneThird);
+    double ponderal = height / cuberoot;
+    return ponderal;
 }
 
 #ifdef UTEST
@@ -295,13 +308,13 @@ void unit_test(double tolerance)
     double p; 
 
     cout << "unit test runnning..." << endl << endl; 
-	cout << setw(10) << left << fixed << setprecision(6);
+    cout << setw(10) << left << fixed << setprecision(6);
     cout << "mass";
-	cout << setw(10) << left << fixed << setprecision(6);
+    cout << setw(10) << left << fixed << setprecision(6);
     cout << "height"; 
-	cout << setw(10) << left << fixed << setprecision(6);
+    cout << setw(10) << left << fixed << setprecision(6);
     cout << "pondeal"; 
-	cout << setw(10) << left << fixed << setprecision(6);
+    cout << setw(10) << left << fixed << setprecision(6);
     cout << "returned" << endl; 
     for(int i =0; i<4; i++) {
         cout << setw(10) << left << fixed << setprecision(6);
@@ -332,6 +345,6 @@ void unit_test(double tolerance)
 
     } 
     cout << endl; 
-    
+
 }
 #endif
